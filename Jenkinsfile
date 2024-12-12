@@ -38,12 +38,17 @@ pipeline {
 				}
 			}
 
-// 			stage ('Deploy') {
-//				steps {
-//					sshagent (['my-ssh-key']) {
-//						sh ''
-//				}
-//			}
-//		}
+			stage ('Deploy') {
+				steps {
+        			    sshagent(['jenkins-ssh-key']) {
+                    			sh '''
+                        		ssh -o StrictHostKeyChecking=no ubuntu@54.152.42.249 << EOF
+                        		kubectl apply -f deploy_cw2server.yml
+                        		kubectl rollout status deployment/cw2-server
+                        		EOF
+                    		'''
+				}
+			}
+		}
 	}
 }
