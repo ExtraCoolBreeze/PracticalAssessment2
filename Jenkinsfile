@@ -8,7 +8,7 @@ pipeline {
 		stage('Docker Image Build') {
 			steps {
 				echo 'Building Docker Image...'
-				sh ' docker build --tag xtracoolbreeze/cw2-server:0.1 .'
+				sh ' docker build --tag xtracoolbreeze/cw2-server:1.0 .'
 				echo 'Docker Image Built Successfully!'
 				}
 			}
@@ -17,8 +17,8 @@ pipeline {
 				steps {
 					echo 'Testing Docker Image...'
 					sh '''
-						docker image inspect xtracoolbreeze/cw2-server:0.1
-						docker run --name test-container -p 8081:8080 xtracoolbreeze/cw2-server:0.1
+						docker image inspect xtracoolbreeze/cw2-server:1.0
+						docker run --name test-container -p 8081:8080 xtracoolbreeze/cw2-server:1.0
 						docker ps
 						docker stop test-container
 						docker rm test-container
