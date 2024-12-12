@@ -38,7 +38,7 @@ pipeline {
 				}
 			}
 
-//			stage ('Deploy') {
+// 			stage ('Deploy') {
 //				steps {
 //					sshagent (['my-ssh-key']) {
 //						sh ''
