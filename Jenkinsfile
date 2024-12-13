@@ -45,10 +45,7 @@ pipeline {
             steps {
                 sshagent(['jenkins-ssh-key']) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@54.152.42.249 << EOF
-                    kubectl apply -f deployment.yaml
-                    kubectl rollout status deployment/cw2-server
-                    EOF
+                    ssh ubuntu@3.90.62.93 "ansible-playbook ~/deploy_cw2server.yml"
                     '''
                 }
             }
