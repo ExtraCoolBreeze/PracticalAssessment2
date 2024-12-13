@@ -41,7 +41,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+//        stage('Deploy') {
             steps {
                 sshagent(['jenkins-ssh-key']) {
                     sh '''
