@@ -35,7 +35,7 @@ pipeline {
             }
         }
 
-        stage('DockerHub Image Push') {
+        stage('DockerHub  Image Push') {
             steps {
                 sh 'docker push xtracoolbreeze/cw2-server:1.0'
             }
